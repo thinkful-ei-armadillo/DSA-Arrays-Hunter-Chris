@@ -97,18 +97,3 @@ function main() {
 }
 
 main();
-
-// function sort(arr, i = 0, idx = 0, count = 0) {
-//   if (count === arr.length - 1) {
-//     return '';
-//   }
-//   if (idx === arr.length) {
-//     return sort(arr, i + 1, idx - idx, count);
-//   } else if (arr[idx] === i) {
-//     return i + sort(arr, i, idx + 1, count + 1);
-//   } else {
-//     return sort(arr, i, idx + 1, count);
-//   }
-// }
-
-// console.log(sort([1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0]));
