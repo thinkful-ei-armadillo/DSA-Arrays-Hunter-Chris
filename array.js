@@ -168,3 +168,20 @@ function sortAndCombine(arr1, arr2) {
 }
 
 // console.log(sortAndCombine([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
+
+//9.
+function noVowels(str, vowels, sI = 0) {
+  if (sI === str.length) {
+    return '';
+  }
+  for (let i = 0; i < str.length; i++) {
+    for (let i = 0; i < vowels.length; i++) {
+      if (str[sI] === vowels[i]) {
+        return '' + noVowels(str, vowels, sI + 1);
+      }
+    }
+    return str[sI] + noVowels(str, vowels, sI + 1);
+  }
+}
+
+// console.log(noVowels('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
