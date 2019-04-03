@@ -208,17 +208,17 @@ function products(arr, i = 0) {
 
 // console.log(products([1, 2, 3, 4]));
 
-function product(arr){
+function product(arr) {
   let newArr = [];
   for (let i = 0; i < arr.length; i++) {
     let product = 1;
     for (let j = 0; j < arr.length; j++) {
       const element = arr[j];
-      if(arr[i] !== arr[j]){
+      if (arr[i] !== arr[j]) {
         product *= element;
       }
     }
-    newArr.push(product); 
+    newArr.push(product);
   }
   return newArr;
 }
@@ -256,4 +256,18 @@ const twoD = (input) => {
 };
 
 // console.log(twoD(input));
- 
+
+
+const rotate = (str1, str2) => {
+  let arr1 = str1.split(''); 
+  let arr2 = str2.split('');
+  for (let i = 0; i < arr1.length; i++) {
+    arr2.unshift(arr2.pop()); 
+    if (arr1.join(',') === arr2.join(',')){
+      return true; 
+    }
+  }
+  return false; 
+};
+
+console.log(rotate('amazon', 'azonma')); 
