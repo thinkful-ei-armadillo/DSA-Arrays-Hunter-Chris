@@ -206,7 +206,7 @@ function products(arr, i = 0) {
   return product + ' ' + products(arr, i + 1);
 }
 
-console.log(products([1, 2, 3, 4]));
+// console.log(products([1, 2, 3, 4]));
 
 function product(arr){
   let newArr = [];
@@ -222,3 +222,38 @@ function product(arr){
   }
   return newArr;
 }
+
+
+//11.
+
+let input = 
+[[1,0,1,1,0],
+  [0,1,1,1,0],
+  [1,1,1,1,1],
+  [1,0,1,1,1],
+  [1,1,1,1,1]];
+
+const twoD = (input) => {
+  
+  let results = JSON.parse(JSON.stringify(input));  
+
+  for (let i = 0; i < input.length; i++) {
+    let element = input[i];
+    for (let j = 0; j < element.length; j++) {
+      let secElement = element[j];
+      if (secElement === 0){
+        for (let k = 0; k < element.length; k++) {
+          results[i][k] = 0; 
+        }
+        for (let l = 0; l < input.length; l++) {
+          results[l][j] = 0; 
+          
+        }
+      }
+    }
+  }
+  return results; 
+};
+
+// console.log(twoD(input));
+ 
