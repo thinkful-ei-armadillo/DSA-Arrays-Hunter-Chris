@@ -87,7 +87,6 @@ function main() {
   arr.push(19);
   arr.push(45);
   arr.push(10);
-  
 
   arr.pop();
   arr.pop();
@@ -99,10 +98,9 @@ function main() {
 
 main();
 
-
 // 2. Array { length: 1, capacity: 3, ptr: 0 }
 //  Array { length: 6, capacity: 12, ptr: 3 }
-//  Memory capacity capacity was exceeded after 6 pushes, increased with 
+//  Memory capacity capacity was exceeded after 6 pushes, increased with
 // _resize, and the pointer moved to three because all of the array was
 // to that postion.
 
@@ -111,36 +109,62 @@ main();
 // will reduce the length by 3.  Since the array was not copied to another
 // space, the pointer won't move.
 
-// 4. 3 
+// 4. 3
 // Nan because the array is set up to only take floats
 // _resize() adds capacity to the array when the limit has been reached.
 
 //5.
-const urlify = (string) => {
+const urlify = string => {
   let newStr = '';
   for (let i = 0; i < string.length; i++) {
-    const element = string [i];
-    if (element ===' '){
+    const element = string[i];
+    if (element === ' ') {
       newStr += '%20';
-    }
-    else {
+    } else {
       newStr += element;
     }
   }
-  return newStr; 
-}; 
+  return newStr;
+};
 
 // console.log(urlify('h e l l o'));
 
 //6.
-const filter = (arr) => {
+const filter = arr => {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < 5){
+    if (arr[i] < 5) {
       arr.splice(i, 1);
-      i--; 
+      i--;
     }
   }
-  return arr; 
+  return arr;
 };
 
-// console.log(filter([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); 
+// console.log(filter([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+//7.
+function largestSum(arr) {
+  let biggestNum = 0;
+  let currentNum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (currentNum > biggestNum) {
+      biggestNum = currentNum;
+    }
+    currentNum += arr[i];
+  }
+  return biggestNum;
+}
+
+// console.log(largestSum([8, 6, -7, 5, -2, 1]));
+
+//8.
+function sortAndCombine(arr1, arr2) {
+  function sorter(a, b) {
+    return a - b;
+  }
+  let combinedArr = arr1.concat(arr2);
+  let sortedArr = combinedArr.sort(sorter);
+  return sortedArr;
+}
+
+// console.log(sortAndCombine([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
