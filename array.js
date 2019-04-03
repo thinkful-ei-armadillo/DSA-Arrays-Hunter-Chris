@@ -1,6 +1,6 @@
 'use strict';
 
-const memory = require('./Memory');
+const memory = require('./memory');
 
 let Memory = new memory();
 
@@ -12,7 +12,7 @@ class Array {
   }
 
   push(value) {
-    if (this.length >= this._capacity) {
+    if (this.length >= this.capacity) {
       this._resize((this.length + 1) * Array.SIZE_RATIO);
     }
     Memory.set(this.ptr + this.length, value);
@@ -27,7 +27,7 @@ class Array {
     }
     Memory.copy(this.ptr, oldPtr, this.length);
     Memory.free(oldPtr);
-    this._capacity = size;
+    this.capacity = size;
   }
 
   get(index) {
@@ -51,7 +51,7 @@ class Array {
       throw new Error('Index error');
     }
 
-    if (this.length >= this._capacity) {
+    if (this.length >= this.capacity) {
       this._resize((this.length + 1) * Array.SIZE_RATIO);
     }
 
@@ -80,8 +80,20 @@ function main() {
   let arr = new Array();
 
   arr.push(3);
-
   console.log(arr);
+
+  arr.push(5);
+  arr.push(15);
+  arr.push(19);
+  arr.push(45);
+  arr.push(10);
+  console.log(arr);
+  
+  arr.pop();
+  arr.pop();
+  arr.pop();
+  console.log(arr);
+  console.log(arr[0]); 
 }
 
 main();

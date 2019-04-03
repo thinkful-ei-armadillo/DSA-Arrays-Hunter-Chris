@@ -42,7 +42,7 @@ class Memory {
   }
 
   set(ptr, value) {
-    this.memory[ptr] = value;
+    this.memory[ptr] = value; 
   }
 }
 
