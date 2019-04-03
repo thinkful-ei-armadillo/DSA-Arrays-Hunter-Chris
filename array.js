@@ -185,3 +185,26 @@ function noVowels(str, vowels, sI = 0) {
 }
 
 // console.log(noVowels('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
+
+//10.
+function products(arr, i = 0) {
+  if (i === arr.length) {
+    return '';
+  }
+  let tempArr = [];
+  for (let idx = 0; idx < arr.length; idx++) {
+    if (arr[i] === arr[idx]) {
+      idx + 1;
+    } else {
+      tempArr.push(arr[idx]);
+    }
+  }
+  let product = 1;
+  console.log(tempArr);
+  for (let idx = 0; idx < arr.length - 1; idx++) {
+    product = product * tempArr[idx];
+  }
+  return product + ' ' + products(arr, i + 1);
+}
+
+console.log(products([1, 2, 3, 4]));
