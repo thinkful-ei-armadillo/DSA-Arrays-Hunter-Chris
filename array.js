@@ -80,21 +80,21 @@ function main() {
   let arr = new Array();
 
   arr.push(3);
-  console.log(arr);
+  // console.log(arr);
 
   arr.push(5);
   arr.push(15);
   arr.push(19);
   arr.push(45);
   arr.push(10);
-  console.log(Memory.get(0));
+  
 
   arr.pop();
   arr.pop();
   arr.pop();
-  console.log(arr);
+  // console.log(arr);
 
-  console.log(Memory.get(0));
+  // console.log(Memory.get(0));
 }
 
 main();
@@ -114,3 +114,33 @@ main();
 // 4. 3 
 // Nan because the array is set up to only take floats
 // _resize() adds capacity to the array when the limit has been reached.
+
+//5.
+const urlify = (string) => {
+  let newStr = '';
+  for (let i = 0; i < string.length; i++) {
+    const element = string [i];
+    if (element ===' '){
+      newStr += '%20';
+    }
+    else {
+      newStr += element;
+    }
+  }
+  return newStr; 
+}; 
+
+// console.log(urlify('h e l l o'));
+
+//6.
+const filter = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < 5){
+      arr.splice(i, 1);
+      i--; 
+    }
+  }
+  return arr; 
+};
+
+// console.log(filter([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); 
