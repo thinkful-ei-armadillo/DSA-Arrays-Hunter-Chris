@@ -93,7 +93,24 @@ function main() {
   arr.pop();
   arr.pop();
   console.log(arr);
-  console.log(Memory.get(2));
+
+  console.log(Memory.get(0));
 }
 
 main();
+
+
+// 2. Array { length: 1, capacity: 3, ptr: 0 }
+//  Array { length: 6, capacity: 12, ptr: 3 }
+//  Memory capacity capacity was exceeded after 6 pushes, increased with 
+// _resize, and the pointer moved to three because all of the array was
+// to that postion.
+
+// 3. Array { length: 6, capacity: 12, ptr: 3 }
+// Removing items from the end of the array does not change the capacity, but
+// will reduce the length by 3.  Since the array was not copied to another
+// space, the pointer won't move.
+
+// 4. 3 
+// Nan because the array is set up to only take floats
+// _resize() adds capacity to the array when the limit has been reached.
